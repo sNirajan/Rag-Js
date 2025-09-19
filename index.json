@@ -1,0 +1,26 @@
+[
+  {
+    "pageContent": "City Zoo Visitor Guide\r\n\r\nHours:\r\n- Open daily 9:00 AM – 5:00 PM. Last entry 4:30 PM.\r\n- Summer hours (June–August): 9:00 AM – 6:00 PM, last entry 5:30 PM.\r\n\r\nTickets:\r\n- Adult (13+): $25, Child (3–12): $15, Under 3: Free.\r\n- Family Pass includes 2 adults + 2 children.\r\n- Online tickets include a barcode for faster entry.\r\n\r\nFood & Drinks:\r\n- Outside food is allowed except glass containers and alcohol.\r\n- Picnic areas available near the North Lawn.\r\n\r\nParking:",
+    "metadata": {
+      "source": "zoo_faq.txt",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 16
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "Parking:\r\n- Onsite parking is $10 per vehicle.\r\n- Overflow lot opens on weekends and holidays.\r\n\r\nAccessibility:\r\n- Wheelchair rentals available at the main gate.\r\n- Most paths are paved and accessible.\r\n\r\nWeather Policy:\r\n- The zoo remains open in light rain. Severe weather may cause temporary closures. Check alerts on the website.\r\n\r\nContact:\r\n- Guest Services: 555-123-4567",
+    "metadata": {
+      "source": "zoo_faq.txt",
+      "loc": {
+        "lines": {
+          "from": 16,
+          "to": 28
+        }
+      }
+    }
+  }
+]
