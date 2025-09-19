@@ -4,10 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "ingest": "node src/ingest.mjs",
+    "ask": "node src/ask.mjs"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "@langchain/openai": "^0.6.13",
+    "dotenv": "^17.2.2",
+    "langchain": "^0.3.34"
+  }
 }
