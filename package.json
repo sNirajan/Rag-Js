@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "ingest": "node src/ingest.mjs",
-    "ask": "node src/ask.mjs"
+    "ask": "node src/ask.mjs",
+    "serve": "node src/server.mjs"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +14,9 @@
   "type": "module",
   "dependencies": {
     "@langchain/openai": "^0.6.13",
+    "cors": "^2.8.5",
     "dotenv": "^17.2.2",
+    "express": "^5.1.0",
     "langchain": "^0.3.34"
   }
 }
