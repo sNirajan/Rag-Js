@@ -1,5 +1,185 @@
 [
   {
+    "pageContent": "City Zoo - Frequently Asked Questions\r\n\r\nQ: What are the general hours of operation?\r\nA: Open daily 9:00 AM–5:00 PM. Last entry 4:30 PM. Seasonal hours apply June–August: 9:00 AM–6:00 PM, last entry 5:30 PM.\r\n\r\nQ: When are seasonal (summer) hours in effect?\r\nA: June 1 through August 31. During this period, hours are 9:00 AM–6:00 PM with last entry at 5:30 PM.\r\n\r\nQ: Do you close for weather?",
+    "metadata": {
+      "source": "faqs.txt",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 9
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "Q: Do you close for weather?\r\nA: We remain open in light rain. Severe weather (e.g., lightning, high winds) may cause temporary closures. Check website alerts or SMS updates on the day of your visit.\r\n\r\nQ: Is outside food allowed?\r\nA: Yes. Personal food and non-alcoholic drinks are allowed. Glass containers and alcohol are not permitted. Picnic areas are available near the North Lawn.\r\n\r\nQ: Are picnic baskets or coolers allowed?",
+    "metadata": {
+      "source": "faqs.txt",
+      "loc": {
+        "lines": {
+          "from": 9,
+          "to": 15
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "Q: Are picnic baskets or coolers allowed?\r\nA: Small soft-sided coolers are allowed. Hard-sided coolers larger than 24 L are not permitted. All items are subject to inspection at entry.\r\n\r\nQ: Can I bring water bottles?\r\nA: Yes. Refillable bottles are encouraged; refill stations are located near the main plaza and North Lawn.\r\n\r\nQ: Are there restaurants or concessions on site?\r\nA: Yes. Concessions operate daily from 10:30 AM. Hours may vary in off-peak seasons.",
+    "metadata": {
+      "source": "faqs.txt",
+      "loc": {
+        "lines": {
+          "from": 15,
+          "to": 22
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "Q: Do you accept digital tickets?\r\nA: Yes. Show the barcode on your phone for faster entry.\r\n\r\nQ: Do you rent strollers or wheelchairs?\r\nA: Yes. Rentals are available at the main gate while supplies last.\r\n\r\nQ: Are service animals allowed?\r\nA: Trained service animals are welcome. Emotional support animals are not permitted.\r\n\r\nQ: May I smoke or vape?\r\nA: No. The zoo is a smoke-free and vape-free campus.\r\n\r\nQ: Is photography allowed?",
+    "metadata": {
+      "source": "faqs.txt",
+      "loc": {
+        "lines": {
+          "from": 24,
+          "to": 36
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "Q: Is photography allowed?\r\nA: Personal photography is welcome. Tripods and commercial shoots require prior approval.\r\n\r\nQ: How can I contact Guest Services?\r\nA: Visit the desk at the main gate during operating hours or call 555-123-4567.",
+    "metadata": {
+      "source": "faqs.txt",
+      "loc": {
+        "lines": {
+          "from": 36,
+          "to": 40
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "City Zoo — Food & Retail\r\n\r\nOutside Food:\r\n- Outside food and non-alcoholic drinks are permitted.\r\n- Glass containers, alcohol, and open flames are prohibited.\r\n\r\nPicnic Areas:\r\n- Picnic areas are located near the North Lawn and the Children’s Zone.\r\n\r\nConcessions:\r\n- Concessions include burgers, pizza, salads, and vegetarian options.\r\n- Concessions operate daily from 10:30 AM; hours vary in off-peak seasons.\r\n\r\nRetail:",
+    "metadata": {
+      "source": "food_retail.txt",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 14
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "Retail:\r\n- The gift shop is located near the exit. It sells toys, apparel, and eco-friendly souvenirs.\r\n- Members receive 10% off all retail purchases.",
+    "metadata": {
+      "source": "food_retail.txt",
+      "loc": {
+        "lines": {
+          "from": 14,
+          "to": 16
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "City Zoo — Memberships\r\n\r\nBenefits:\r\n- Unlimited general admission for one year.\r\n- Discounts on concessions and retail (10%).\r\n- Early access to special events.\r\n\r\nGuest Passes:\r\n- Some tiers include guest passes. These are valid for general admission only.\r\n- Blackout dates may apply during high-demand days (e.g., long weekends).\r\n\r\nRenewals:\r\n- Memberships can be renewed online or at Guest Services.\r\n- Renewal reminders are sent 30 days before expiration.\r\n\r\nBlackout Dates:",
+    "metadata": {
+      "source": "membership.txt",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 16
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "Blackout Dates:\r\n- Blackout dates are posted on the zoo’s website calendar each season.",
+    "metadata": {
+      "source": "membership.txt",
+      "loc": {
+        "lines": {
+          "from": 16,
+          "to": 17
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "City Zoo — Safety & Weather Policy\r\n\r\nWeather:\r\n- The zoo remains open in light rain.\r\n- Severe weather (lightning, high winds, ice) may cause temporary closures.\r\n- Updates are posted on the website and social channels.\r\n\r\nProhibited Items:\r\n- Weapons, alcohol, glass containers, drones, bicycles on pathways.\r\n- Bags may be inspected at entry.\r\n\r\nAnimals:\r\n- Feeding animals is not permitted.\r\n- Stay on pathways; climbing fences is prohibited.\r\n\r\nSmoking:",
+    "metadata": {
+      "source": "safety_weather.txt",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 16
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "Smoking:\r\n- The zoo is a smoke-free and vape-free campus.\r\n\r\nEmergency:\r\n- In case of emergency, follow staff instructions and proceed to designated safe zones.",
+    "metadata": {
+      "source": "safety_weather.txt",
+      "loc": {
+        "lines": {
+          "from": 16,
+          "to": 20
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "City Zoo - Ticketing & Entry Policy\r\n\r\nEntry Windows:\r\n- Standard entry windows are 30 minutes. Late arrivals may be accommodated at staff discretion based on capacity.\r\n\r\nRescheduling:\r\n- One complimentary reschedule up to 24 hours before original entry time (subject to availability).\r\n- Within 24 hours, rescheduling is not guaranteed and may incur a fee.\r\n\r\nRefunds:\r\n- Nonrefundable except for full-day closures initiated by the zoo.\r\n- Partial-day weather holds may qualify for rain checks.",
+    "metadata": {
+      "source": "ticketing_policy.txt",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 12
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "Identification:\r\n- Photo ID may be requested for discounted tickets and memberships.\r\n\r\nRe-entry:\r\n- Same-day re-entry allowed with hand stamp and valid barcode.\r\n\r\nSpecial Events:\r\n- Separate tickets may be required for after-hours or limited-capacity events.",
+    "metadata": {
+      "source": "ticketing_policy.txt",
+      "loc": {
+        "lines": {
+          "from": 14,
+          "to": 21
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "City Zoo — Visiting Guide\r\n\r\nMap:\r\n- A digital map is available on the website and at the main entrance via QR code.\r\n\r\nParking:\r\n- Onsite parking is $10 per vehicle. The overflow lot opens on weekends and holidays.\r\n- Four EV charging stations are available in Row C.\r\n\r\nAccessibility:\r\n- Most paths are paved and wheelchair accessible.\r\n- Wheelchair rentals are available at the main gate.\r\n- Family restrooms and nursing areas are located near the Children’s Zone.\r\n\r\nLockers:",
+    "metadata": {
+      "source": "visiting_guide.txt",
+      "loc": {
+        "lines": {
+          "from": 1,
+          "to": 15
+        }
+      }
+    }
+  },
+  {
+    "pageContent": "Lockers:\r\n- Day-use lockers are available near the main entrance.\r\n\r\nLost & Found:\r\n- Visit Guest Services or call the number on your ticket confirmation.",
+    "metadata": {
+      "source": "visiting_guide.txt",
+      "loc": {
+        "lines": {
+          "from": 15,
+          "to": 19
+        }
+      }
+    }
+  },
+  {
     "pageContent": "City Zoo Visitor Guide\r\n\r\nHours:\r\n- Open daily 9:00 AM – 5:00 PM. Last entry 4:30 PM.\r\n- Summer hours (June–August): 9:00 AM – 6:00 PM, last entry 5:30 PM.\r\n\r\nTickets:\r\n- Adult (13+): $25, Child (3–12): $15, Under 3: Free.\r\n- Family Pass includes 2 adults + 2 children.\r\n- Online tickets include a barcode for faster entry.\r\n\r\nFood & Drinks:\r\n- Outside food is allowed except glass containers and alcohol.\r\n- Picnic areas available near the North Lawn.\r\n\r\nParking:",
     "metadata": {
       "source": "zoo_faq.txt",
