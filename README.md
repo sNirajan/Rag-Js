@@ -29,26 +29,6 @@ This project is a Retrieval-Augmented Generation (RAG) system built with Node.js
 * Vector store: LangChain MemoryVectorStore (local demo)
 * HTML/CSS frontend
 
-## Architecture
-
-User (browser) ->
-     POST /ask
-
-Express API (src/server.mjs)
-   ├─ expand synonyms / validate input
-   ├─ retrieve top-K with scores (vector store)
-   ├─ distance gate (confidence check)
-   ├─ build numbered context blocks [1], [2], ...
-   ├─ LLM generate (grounded; short; cited)
-   └─ return { answer, sources }
-
-
-Ingestion (src/ingest.mjs)
-   ├─ read data/*.txt
-   ├─ paragraph chunking
-   ├─ compute embeddings (OpenAI)
-   └─ snapshot as index.json (docs + metadata)
-
 ## Running the Project
 
 ```bash
