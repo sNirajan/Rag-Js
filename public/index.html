@@ -207,7 +207,9 @@
 
         .chip b {
             color: #0f5132;
-        }F
+        }
+
+        F
 
         /* Accessibility & polish */
         button:focus-visible,
@@ -230,6 +232,28 @@
             clip: rect(0, 0, 0, 0);
             border: 0;
         }
+
+        .suggestions {
+            margin: 10px 18px 0;
+            /* sits just under the form */
+            padding: 10px 12px;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: #f0fbf3;
+            /* light green wash */
+        }
+
+        .suggestions__text {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        .suggestions__text strong {
+            color: #14532d;
+            /* deep green for emphasis */
+            font-weight: 700;
+        }
     </style>
 </head>
 
@@ -246,12 +270,23 @@
         <div class="card" role="region" aria-label="Ask a question">
             <form id="qa" class="bar" novalidate>
                 <label class="sr-only" for="q">Question</label>
+
                 <div class="input">
                     <input id="q" type="text" placeholder='Ask, e.g., "Does the zoo stay open during rain?"'
                         autocomplete="off" />
                 </div>
                 <button id="askBtn" class="btn" type="submit" aria-label="Ask">Ask</button>
             </form>
+
+            <!-- Suggested topics -->
+            <div class="suggestions">
+                <div class="suggestions__text">
+                    Try asking about: <strong>Hours</strong>, <strong>Ticketing & Entry</strong>, <strong>Weather &
+                        Safety</strong>, <strong>Food & Picnic</strong>, <strong>Parking</strong>,
+                    <strong>Accessibility</strong>, <strong>Membership</strong>, <strong>Retail</strong>,
+                    <strong>Map</strong>.
+                </div>
+            </div>
 
             <div id="status" class="status" aria-live="polite"></div>
 
