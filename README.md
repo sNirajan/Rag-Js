@@ -31,8 +31,9 @@ This project is a Retrieval-Augmented Generation (RAG) system built with Node.js
 
 ## Architecture
 
-User (browser)
-   ↓  POST /ask
+User (browser) ->
+     POST /ask
+
 Express API (src/server.mjs)
    ├─ expand synonyms / validate input
    ├─ retrieve top-K with scores (vector store)
@@ -40,6 +41,7 @@ Express API (src/server.mjs)
    ├─ build numbered context blocks [1], [2], ...
    ├─ LLM generate (grounded; short; cited)
    └─ return { answer, sources }
+
 
 Ingestion (src/ingest.mjs)
    ├─ read data/*.txt
