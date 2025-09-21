@@ -1,4 +1,4 @@
-// Tiny RAG API server for the demo User INterface
+// Tiny RAG API server for the demo User Interface
 
 import "dotenv/config"; // Loads env variables
 
@@ -81,6 +81,32 @@ function hasKeywordOverlap(q, passage) {
   let overlap = 0;
   for (const w of qWords) if (pWords.has(w)) overlap++;
   return overlap > 0; // at least 1 meaningful word in common
+}
+
+/*
+ * This is NEW: micro synonym/alias expansion to improve recall on common asks
+ * - Example: "open on sat?" -> expands to include "saturday weekend"
+ * - Example: "bring my car" -> includes "vehicle parking"
+ * This does not remove anything; it simply appends helpful terms.
+ *  */
+function expandQuestionSynonyms(q) {
+  let out = q;
+  const lower = q.toLowerCase();
+
+  // weekend variants
+  if (/\b(sat|saturday)\b/.test(lower)) out += " saturday weekend";
+  if (/\b(sun|sunday)\b/.test(lower)) out += " sunday weekend";
+  if (/\b(weekend|weekends)\b/.test(lower)) out += " saturday sunday";
+
+  // parking / car
+  if (/\b(car|cars|vehicle|vehicles|drive)\b/.test(lower))
+    out += " parking lot";
+
+  // hours / open / opening
+  if (/\b(open|hours|opening|close|closing)\b/.test(lower))
+    out += " hours open opening times";
+
+  return out;
 }
 
 /**
@@ -168,11 +194,11 @@ async function main() {
    */
   app.post("/ask", async (req, res) => {
     try {
-      // VAlidating input
+      // Validating input
       const question = String(req.body?.question || "").trim();
       if (!question) return res.status(400).json({ error: "Missing question" });
 
-      // Guardrail: vague question, asking for clarificaiton
+      // Guardrail: vague question, asking for clarification
       if (isVagueQuestion(question)) {
         return res.json({
           answer:
@@ -181,25 +207,45 @@ async function main() {
         });
       }
 
-      // Retrieving top-1 for crisp answer (can change to 3-5)
-      const K = 1;
-      const results = await store.similaritySearch(question, K);
-      if (!results || results.length === 0) {
+      // NEW: expand synonyms to help recall on common phrasings
+      const expandedQuestion = expandQuestionSynonyms(question);
+
+      // Retrieving (vector search + scores)
+      const K = 3; // consider the top few
+      const pairs = await store.similaritySearchWithScore(expandedQuestion, K);
+
+      // Sorts by distance (defensive), take best (lower = closer)
+      pairs.sort((a, b) => a[1] - b[1]);
+
+      const [bestDoc, bestDistance] = pairs[0] || [];
+      // RAISED THRESHOLD: allow near matches like 0.38 into context
+      const COSINE_DISTANCE_MAX = 0.55; // tune 0.45–0.55 for  corpus
+
+      if (!bestDoc || bestDistance > COSINE_DISTANCE_MAX) {
         return res.json({
           answer: "I don't know based on the provided documents.",
           sources: [],
         });
       }
 
-      // 3) Low-confidence check: if no keyword overlap with top chunk, refuse
-      const top = results[0];
-      if (!hasKeywordOverlap(question, top.pageContent)) {
-        return res.json({
-          answer:
-            "I don't know based on the provided documents. Try a more specific question, e.g., \“What are seasonal hours?\”",
-          sources: [],
-        });
+      // Builds numbered context from the top few within threshold
+      const results = pairs
+        .filter(([, dist]) => dist <= COSINE_DISTANCE_MAX)
+        .slice(0, K)
+        .map(([doc]) => doc);
+      if (results.length === 0 && pairs.length) {
+        // fallback: use the best doc that passed the initial bestDoc check
+        results.push(pairs[0][0]);
       }
+
+      // Debug log (keep while tuning, then remove if you want)
+      console.log(
+        "Pairs + scores:",
+        pairs.map(([doc, score]) => ({
+          source: doc.metadata?.source,
+          score,
+        }))
+      );
 
       // Builds numbered context blocks for citations [1], [2], ...
       const numbered = results.map((doc, i) => {
@@ -218,6 +264,7 @@ Requirements:
 - If missing, say "I don't know."
 - Include citations like [1], [2].
 `;
+
       // Asks the model to generate the answer
       const response = await llm.invoke([
         { role: "system", content: system },
@@ -225,18 +272,51 @@ Requirements:
       ]);
 
       // Returns a clean JSON shape to the browser
+      let answer = (response.content || "").trim();
 
-      const answer = (response.content || "").trim();
+      // NEW: normalize rare "I don't now" typo to "I don't know"
+      if (answer.startsWith("I don't now")) {
+        answer = answer.replace(/^I don't now/, "I don't know");
+      }
 
-      // Hiding sources if we refused
+      /*
+       * NEW: show ONLY the sources the model actually cited in the answer,
+       * and deduplicate by filename (avoid showing faqs.txt twice).
+       * - Citations look like [1], [2], [3] in the model output.
+       * - We parse those indices and keep only those sources.
+       *  */
+      let sourcesToShow = [];
+      if (!answer.startsWith("I don't know")) {
+        // Builds the full list (as you had)
+        const allSources = results.map((d, i) => ({
+          id: i + 1,
+          source: d.metadata?.source || "unknown",
+        }));
+
+        // Extracts cited indices from the answer: [1], [2], ...
+        const citedIdx = new Set(
+          (answer.match(/\[(\d+)\]/g) || [])
+            .map((m) => Number(m.slice(1, -1)))
+            .filter((n) => Number.isFinite(n))
+        );
+
+        // Keeps only cited sources; if none parsed, fall back to allSources
+        const citedOnly = allSources.filter((s) => citedIdx.has(s.id));
+        const base = citedOnly.length > 0 ? citedOnly : allSources;
+
+        // Deduplicates by filename while preserving order
+        const seen = new Set();
+        sourcesToShow = base.filter((s) => {
+          if (seen.has(s.source)) return false;
+          seen.add(s.source);
+          return true;
+        });
+      }
+
+      // Final response
       return res.json({
         answer,
-        sources: answer.startsWith("I don't know")
-          ? [] // no sources shown if model said "I don't know"
-          : results.map((d, i) => ({
-              id: i + 1,
-              source: d.metadata?.source || "unknown",
-            })),
+        sources: sourcesToShow, // will be [] if "I don't know"
       });
     } catch (err) {
       // If any error occurs, logs it and sends a safe error
